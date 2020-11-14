@@ -7,7 +7,13 @@ function sumaTodosImpares(array) {
   // sumaTodosImpares([1, 5, 2, 9, 6, 4]) devuelve 1 + 5 + 9 = 15
 
   // Tu código aca:
-  
+  var resultado = 0;
+  for (var i = 0; i < array.length; i++) {
+    if(array[i]%2 == 1){
+      resultado = resultado + array[i];
+    }
+  }
+  return resultado;
 }
 
 function stringMasLarga(str) {
@@ -19,7 +25,14 @@ function stringMasLarga(str) {
   // Tip: podes usar el metodo de String 'split'
 
   // Tu código aca:
-
+  var palabraMasLarga = "";
+  var arrayString = str.split(" ");
+  for (var i = 0; i < arrayString.length; i++) {
+    if(arrayString[i].length > palabraMasLarga.length){
+      palabraMasLarga = arrayString[i];
+    }
+  }
+  return palabraMasLarga;
 }
 
 function estaOffline(usuarios, nombre) {
@@ -45,7 +58,15 @@ function estaOffline(usuarios, nombre) {
   // estaOffline(usuarios, 'emi') retorna false
 
   // Tu código aca:
-  
+  var estaOffline = true;
+  for (var i = 0; i < usuarios.length; i++) {
+    if(usuarios[i].nombre == nombre){
+      if(usuarios[i].online == "true" || usuarios[i].online == true){
+        estaOffline = false;
+      }
+    }
+  }
+  return estaOffline;
 }
 
 function actividadesEnComun(persona1, persona2) {
@@ -57,6 +78,10 @@ function actividadesEnComun(persona1, persona2) {
   // Tip: podes usar ciclos for anidados.
   // Tu código aca:
 
+  //Esta funcion lo que hace es comparar los dos array, primero toma cada elemento del primer array,
+  //y lo compara con cada elemento del segundo, a medida que machean, lo va agregandoa interseccion.
+  var inteseccion = persona1.filter(element => persona2.includes(element));
+  return inteseccion;
 }
 
 function buscaDestruye(arreglo, num) {
@@ -68,7 +93,15 @@ function buscaDestruye(arreglo, num) {
   // Ej: buscaDestruye([1, 2, 3, 4, 1], 1) devuelve => [2, 3, 4]
   //
   // Tu código aca:
-
+  var i = 0;
+  while (i < arreglo.length) {
+    if (arreglo[i] === num) {
+      arreglo.splice(i, 1);
+    } else {
+      ++i;
+    }
+  }
+  return arreglo;
 }
 
 function sumarElTipo(arreglo) {
@@ -93,7 +126,6 @@ function crearClaseEmprendedor() {
           // Inicializar las propiedades del emprendedor con los valores recibidos como argumento
 
           // Tu código aca:
-
       }
 
       addMascota(mascota) {
